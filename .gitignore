@@ -19,3 +19,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+weather_data/coldestCities.json
+
+appConfig.js
