@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "vue": "^2.5.16"
+    "express": "^4.16.3",
+    "vue": "^2.5.16",
+    "vue-server-renderer": "^2.5.16"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.15",
