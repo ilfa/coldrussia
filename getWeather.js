@@ -2,8 +2,8 @@ const axios = require('axios');
 const fs = require('fs');
 const cityList =require('./weather_data/listId.json');
 const dict = require('./weather_data/dictEnRu.json');
+const config = require('./appConfig');
 const cityPerRequest = 20;
-const config = require('appConfig');
 
 function makeRequest(idList) {
 	const options = {

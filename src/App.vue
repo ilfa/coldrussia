@@ -7,18 +7,20 @@
       </div>
       <router-view />
       <Share />
-      <router-view name="footer"/>
+      <Footer/>
     </div>
   </div>
 </template>
 
 <script>
 import Share from './components/Share.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'app',
   components: {
-    Share
+    Share,
+    Footer,
   }
 }
 </script>

@@ -1,31 +1,16 @@
 <template>
   <div class="footer">
     <p>Coldrussia.ru — это рейтинг самых холодных мест в России сегодня. Мы не знаем, как живут отважные люди в этих городах, но восхищаемся их стойкостью. Следите вместе с нами за прогнозом погоды, учите географию страны и читайте <a href="http://metkere.com" target="_blank">metkere.com</a>.</p>
-    <p v-if="notColdest">Рекомендуем изучить <router-link to="/coldest">список</router-link> самых холодных городов.</p>
+    <router-view name="coldestLink"/>
     <p>Идея проекта — <a href="http://metkere.com" target="_blank">Илья Кабанов</a>, дизайн — <a href="http://be.net/printgrids" target="_blank">Александр Смирнов</a>, вся важная работа — <a href="http://ilfa.ru/" target="_blank">Илья Таратухин</a>.</p>
     <p>Данные предоставлены <a href="http://openweathermap.org/" target="_blank">Open Weather Map.</a></p>
-
-    <a href='//www.liveinternet.ru/click' target=_blank>
-      <img v-if="counterUrl" :src='counterUrl' alt='' title='LiveInternet: показано число посетителей за сегодня' border='0' width='88' height='15' class="footerCounter">
-    </a>
+    <router-view name="counterButton"/>
   </div>
 </template>
 
 <script>
-  import { getCounterUrl } from '../utils';
-
   export default {
     name: 'Footer',
-    data() {
-      return {
-        counterUrl: getCounterUrl()
-      }
-    },
-    computed: {
-      notColdest: function() {
-        return !this.$route.meta.coldest;
-      }
-    }
   }
 </script>
 
