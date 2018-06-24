@@ -2,26 +2,22 @@
   <div id="app"  class="wrapper">
     <div class="content">
       <div class="header">
-        <h1><a href="/"><span class="blue">Холодная</span> <span class="red">Россия</span></a></h1>
+        <h1><router-link to="/"><span class="blue">Холодная</span> <span class="red">Россия</span></router-link></h1>
         <div class="subheading">Сегодня в России чертовски холодно</div>
       </div>
-      <Weather/>
+      <router-view />
       <Share />
-      <Footer/>
+      <router-view name="footer"/>
     </div>
   </div>
 </template>
 
 <script>
-import Weather from './components/Weather.vue'
-import Footer from './components/Footer.vue'
 import Share from './components/Share.vue'
 
 export default {
   name: 'app',
   components: {
-    Weather,
-    Footer,
     Share
   }
 }

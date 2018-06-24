@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <p>Coldrussia.ru — это рейтинг самых холодных мест в России сегодня. Мы не знаем, как живут отважные люди в этих городах, но восхищаемся их стойкостью. Следите вместе с нами за прогнозом погоды, учите географию страны и читайте <a href="http://metkere.com" target="_blank">metkere.com</a>.</p>
-    <p v-if="notColdest">Рекомендуем изучить <a href="/coldest">список</a> самых холодных городов.</p>
+    <p v-if="notColdest">Рекомендуем изучить <router-link to="/coldest">список</router-link> самых холодных городов.</p>
     <p>Идея проекта — <a href="http://metkere.com" target="_blank">Илья Кабанов</a>, дизайн — <a href="http://be.net/printgrids" target="_blank">Александр Смирнов</a>, вся важная работа — <a href="http://ilfa.ru/" target="_blank">Илья Таратухин</a>.</p>
     <p>Данные предоставлены <a href="http://openweathermap.org/" target="_blank">Open Weather Map.</a></p>
 
@@ -18,8 +18,12 @@
     name: 'Footer',
     data() {
       return {
-        notColdest: false,
         counterUrl: getCounterUrl()
+      }
+    },
+    computed: {
+      notColdest: function() {
+        return !this.$route.meta.coldest;
       }
     }
   }

@@ -14,11 +14,11 @@
 
   export default {
     name: 'Weather',
-    data() {
-      return {
-        cities: getColdest()
+    computed: {
+      cities: function() {
+        return getColdest(this.$route.meta.coldest);
       }
-    }
+    },
   }
 </script>
 
