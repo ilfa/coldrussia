@@ -1,0 +1,15 @@
+[Unit]
+Description=Coldrussia
+After=network.target
+
+[Service]
+Environment=PORT=3001
+Environment=NODE_ENV=production
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/coldrussia
+ExecStart=/usr/bin/node /var/www/coldrussia/scripts/start.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
