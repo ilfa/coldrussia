@@ -2,6 +2,7 @@ const path = require('path')
 const fs = require('fs')
 const express = require('express')
 const proxy = require('http-proxy-middleware');
+const compression = require('compression')
 
 const { createBundleRenderer } = require('vue-server-renderer')
 
@@ -15,6 +16,7 @@ function createRenderer (bundle, options) {
 }
 
 const app = express();
+app.use(compression());
 
 let renderer;
 const templatePath = path.resolve(__dirname, './src/index.template.html')

@@ -65,6 +65,27 @@ export function getColdest(needColdest) {
 
 }
 
+function initVkWidget() {
+  //vk
+  VK.Widgets.Like('vk_like', {
+    type: 'button',
+    pageImage: 'http://coldrussia.ru/img/cold.jpg',
+    pageDescription: 'coldrussia.ru — это рейтинг самых холодных мест в России сегодня. Мы не знаем, как живут отважные люди в этих городах, но восхищаемся их стойкостью.',
+    text: 'Рейтинг самых холодных мест в России сегодня. Мы не знаем, как живут отважные люди в этих городах, но восхищаемся их стойкостью.',
+    pageTitle: 'Холодная Россия',
+    height: 20,
+    width: 200
+  }, 11);
+}
+
+function waitAndInitVkWidget() {
+  if (window.VK) {
+    initVkWidget();
+  } else {
+    setTimeout(waitAndInitVkWidget, 500);
+  }
+}
+
 let loaded = false;
 export function loadShare() {
   if (!loaded) {
@@ -80,17 +101,7 @@ export function loadShare() {
 
   }
 
-
-  //vk
-  VK.Widgets.Like('vk_like', {
-    type: 'button',
-    pageImage: 'http://coldrussia.ru/img/cold.jpg',
-    pageDescription: 'coldrussia.ru — это рейтинг самых холодных мест в России сегодня. Мы не знаем, как живут отважные люди в этих городах, но восхищаемся их стойкостью.',
-    text: 'Рейтинг самых холодных мест в России сегодня. Мы не знаем, как живут отважные люди в этих городах, но восхищаемся их стойкостью.',
-    pageTitle: 'Холодная Россия',
-    height: 20,
-    width: 200
-  }, 11);
+  waitAndInitVkWidget();
 
   if (loaded) {
     twttr.widgets.load();
