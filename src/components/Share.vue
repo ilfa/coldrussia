@@ -4,7 +4,7 @@
       <a href="https://twitter.com/share" class="twitter-share-button" data-text="Самые холодные места в России:">Tweet</a>
     </div>
     <div id="vk_like" class="vk-like"></div>
-    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="200" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+    <div class="fb-like" data-href="http://coldrussia.ru/" data-width="200" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
   </div>
 </template>
 
