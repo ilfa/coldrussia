@@ -59,6 +59,17 @@ app.use('/css', express.static(path.resolve(__dirname, './dist/css')))
 app.use('/fonts', express.static(path.resolve(__dirname, './dist/fonts')))
 app.use('/favicon.ico', express.static(path.resolve(__dirname, './dist/favicon.ico')))
 
+app.get('/robots.txt', (req, res) => {
+  res.setHeader("Content-Type", "text/html");
+  const result = `
+  User-agent: *
+  Host: https://coldrussia.ru
+  Allow: /
+  `;
+  res.status(200);
+  res.send(result);
+});
+
 app.get('*', (req, res) => {
 
   res.setHeader("Content-Type", "text/html")

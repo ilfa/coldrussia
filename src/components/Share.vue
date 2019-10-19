@@ -1,10 +1,10 @@
 <template>
   <div class="share">
     <div class="tw-like">
-      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Самые холодные места в России:">Tweet</a>
+      <a href="https://twitter.com/share" title="Share in twitter" class="twitter-share-button" data-text="Самые холодные места в России:">Tweet</a>
     </div>
-    <div class="fb-like" data-href="http://coldrussia.ru/" data-width="200" data-layout="button_count" data-action="like" data-show-faces="true"></div>
-    <div id="vk_like" class="vk-like"></div>
+    <div class="fb-like" title="Share in facebook" data-href="http://coldrussia.ru/" data-width="200" data-layout="button_count" data-action="like" data-show-faces="true"></div>
+    <div id="vk_like" title="Share in vk" class="vk-like"></div>
   </div>
 </template>
 
