@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Share from './components/Share.vue'
 import Footer from './components/Footer.vue'
 

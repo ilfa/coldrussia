@@ -1,5 +1,6 @@
 import { createApp } from './app'
 
+// @ts-ignore
 export default context => {
   return new Promise((resolve, reject) => {
     const { app, router } = createApp()
