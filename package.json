@@ -7,27 +7,34 @@
     "build": "npm run build:server && mv dist/vue-ssr-server-bundle.json bundle && npm run build:client && mv bundle dist/vue-ssr-server-bundle.json",
     "lint": "vue-cli-service lint",
     "build:client": "vue-cli-service build",
-    "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build",
+    "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build --modern",
     "start": "cross-env NODE_ENV=production node scripts/start"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "compression": "^1.7.4",
     "core-js": "^3.6.5",
-    "express": "^4.16.3",
+    "express": "^4.17.1",
     "vue": "^2.6.12",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.0.1",
     "vue-server-renderer": "^2.6.12"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "^4.5.10",
     "@vue/cli-plugin-eslint": "^4.5.10",
+    "@vue/cli-plugin-typescript": "^4.5.10",
     "@vue/cli-service": "^4.5.10",
+    "@vue/eslint-config-typescript": "^5.0.2",
     "babel-eslint": "^10.1.0",
     "cross-env": "^5.2.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "lodash.merge": "^4.6.2",
+    "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.12",
     "webpack-node-externals": "^1.7.2"
   },
@@ -38,11 +45,12 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "@vue/typescript"
     ],
     "rules": {},
     "parserOptions": {
-      "parser": "babel-eslint"
+      "parser": "@typescript-eslint/parser"
     },
     "globals": {
       "VK": false,

@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import Router, { RouteConfig } from 'vue-router';
 
 import Weather from './components/Weather.vue';
 import ColdestLink from './components/ColdestLink.vue';
@@ -7,7 +7,7 @@ import CounterButton from './components/CounterButton.vue';
 
 Vue.use(Router)
 
-const routes = [
+const routes: RouteConfig[] = [
   {
     path: '/',
     component: Weather,

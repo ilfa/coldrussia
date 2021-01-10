@@ -9,16 +9,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import { Component, Vue } from 'vue-property-decorator'
   import { getColdest } from '../utils';
+  // import { CityInfoList } from '@/types';
 
-  export default {
-    name: 'Weather',
-    computed: {
-      cities: function() {
-        return getColdest(this.$route.meta.coldest);
-      }
-    },
+  @Component
+  export default class Weather extends Vue {
+    get cities() {
+      return getColdest(this.$route.meta.coldest);
+    }
   }
 </script>
 

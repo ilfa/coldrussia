@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
   import { loadShare } from '../utils';
 
   export default {

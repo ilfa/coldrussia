@@ -1,8 +1,9 @@
 import coldest from './../weather_data/coldestCities.json';
+import { ColdestCityInfoList, ColdestCityInfo } from '@/types';
 
 export const isBrowser = new Function("try {return this===window;}catch(e){ return false;}");
 
-export function getCounterUrl() {
+export function getCounterUrl(): string {
   if (!isBrowser()) {
     return '';
   }
@@ -12,18 +13,20 @@ export function getCounterUrl() {
     ";"+Math.random();
 }
 
-export function getColdest(needColdest) {
+export function getColdest(needColdest: boolean): ColdestCityInfoList {
   if (needColdest) {
-    const result = [];
+    const result: ColdestCityInfoList = [];
     for (let i = 0; i < 10; i++) {
-      const city = coldest[i];
-      city.index = i + 1;
+      const city: ColdestCityInfo = {
+        ...coldest[i],
+        index: i + 1,
+      };
       result.push(city);
     }
     return result;
   }
 
-  function getRandId(max, blackList) {
+  function getRandId(max: number, blackList: number[]): number {
     const rnd = Math.floor(Math.random() * max);
     if (inArray(blackList, rnd)) {
       return getRandId(max, blackList);
@@ -32,7 +35,7 @@ export function getColdest(needColdest) {
     }
   }
 
-  function inArray(list, val) {
+  function inArray<T>(list: T[], val: T): boolean {
     for (const key in list) {
       if (val === list[key]) {
         return true;
@@ -53,11 +56,13 @@ export function getColdest(needColdest) {
     return a1 - a2;
   });
 
-  const cityList = [];
+  const cityList: ColdestCityInfoList = [];
 
   for (let i = 0; i < 10; i++) {
-    const city = coldest[ids[i]];
-    city.index = i + 1;
+    const city: ColdestCityInfo = {
+      ...coldest[ids[i]],
+      index: i + 1,
+    };
     cityList.push(city);
   }
 
@@ -67,6 +72,7 @@ export function getColdest(needColdest) {
 
 function initVkWidget() {
   //vk
+  // @ts-ignore
   VK.Widgets.Like('vk_like', {
     type: 'button',
     pageImage: 'http://coldrussia.ru/img/cold.jpg',
@@ -79,6 +85,7 @@ function initVkWidget() {
 }
 
 function waitAndInitVkWidget() {
+  // @ts-ignore
   if (window.VK) {
     initVkWidget();
   } else {
@@ -90,12 +97,16 @@ let loaded = false;
 export function loadShare() {
   if (!loaded) {
     //twitter
+    // @ts-ignore
     !function(d,s,id){
+      // @ts-ignore
       var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
       if(!d.getElementById(id)){
         js=d.createElement(s);
         js.id=id;
+        // @ts-ignore
         js.src=p+'://platform.twitter.com/widgets.js';
+        // @ts-ignore
         fjs.parentNode.insertBefore(js,fjs);
       }}(document, 'script', 'twitter-wjs');
 
@@ -104,7 +115,9 @@ export function loadShare() {
   waitAndInitVkWidget();
 
   if (loaded) {
+    // @ts-ignore
     twttr.widgets.load();
+    // @ts-ignore
     FB.XFBML.parse();
   }
 
