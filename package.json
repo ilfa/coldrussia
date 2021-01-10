@@ -11,7 +11,7 @@
     "start": "cross-env NODE_ENV=production node scripts/start"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "compression": "^1.7.4",
     "core-js": "^3.6.5",
     "express": "^4.16.3",
@@ -27,7 +27,7 @@
     "cross-env": "^5.2.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "lodash.merge": "^4.6.1",
+    "lodash.merge": "^4.6.2",
     "vue-template-compiler": "^2.6.12",
     "webpack-node-externals": "^1.7.2"
   },
