@@ -7,14 +7,14 @@
     "build": "npm run build:server && mv dist/vue-ssr-server-bundle.json bundle && npm run build:client && mv bundle dist/vue-ssr-server-bundle.json",
     "lint": "vue-cli-service lint",
     "build:client": "vue-cli-service build",
-    "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build",
+    "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build --modern",
     "start": "cross-env NODE_ENV=production node scripts/start"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "compression": "^1.7.4",
     "core-js": "^3.6.5",
-    "express": "^4.16.3",
+    "express": "^4.17.1",
     "vue": "^2.6.12",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.1.2",
