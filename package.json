@@ -5,26 +5,30 @@
   "scripts": {
     "serve": "npm run build && node scripts/serve",
     "build": "npm run build:server && mv dist/vue-ssr-server-bundle.json bundle && npm run build:client && mv bundle dist/vue-ssr-server-bundle.json",
+    "lint": "vue-cli-service lint",
     "build:client": "vue-cli-service build",
     "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build",
-    "start": "cross-env NODE_ENV=production node scripts/start",
-    "lint": "vue-cli-service lint"
+    "start": "cross-env NODE_ENV=production node scripts/start"
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "express": "^4.16.3",
     "compression": "^1.7.4",
-    "vue": "^2.5.16",
+    "core-js": "^3.6.5",
+    "express": "^4.16.3",
+    "vue": "^2.6.12",
     "vue-router": "^3.0.1",
-    "vue-server-renderer": "^2.5.16"
+    "vue-server-renderer": "^2.6.12"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-rc.3",
-    "@vue/cli-plugin-eslint": "^3.0.0-rc.3",
-    "@vue/cli-service": "^3.0.0-rc.3",
+    "@vue/cli-plugin-babel": "^4.5.10",
+    "@vue/cli-plugin-eslint": "^4.5.10",
+    "@vue/cli-service": "^4.5.10",
+    "babel-eslint": "^10.1.0",
     "cross-env": "^5.2.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
     "lodash.merge": "^4.6.2",
-    "vue-template-compiler": "^2.5.16",
+    "vue-template-compiler": "^2.6.12",
     "webpack-node-externals": "^1.7.2"
   },
   "eslintConfig": {
