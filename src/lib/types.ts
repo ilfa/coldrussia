@@ -1,6 +1,6 @@
 export interface CityInfo {
   id: number;
-  name: String;
+  name: string;
   temp: string;
 }
 

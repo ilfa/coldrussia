@@ -1,28 +1,21 @@
-<template>
-  <div class="weather">
-      <div v-for="city in cities" :key="city.name" :class="`size_${city.index}`">
-        <p class="degree">{{city.temp}}</p>
-        <p class="city">
-          <a :href="`http://openweathermap.org/city/${city.id}`" target="_blank">{{city.name}}</a>
-        </p>
-      </div>
-  </div>
-</template>
-
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator'
-  import { getColdest } from '../utils';
-  // import { CityInfoList } from '@/types';
+  import type { ColdestCityInfoList } from '/src/lib/types';
 
-  @Component
-  export default class Weather extends Vue {
-    get cities() {
-      return getColdest(this.$route.meta.coldest);
-    }
-  }
+  export let cities: ColdestCityInfoList;
 </script>
 
-<style scoped>
+<div class="weather">
+  {#each cities as city, index}
+    <div class="size_{index + 1}">
+      <p class="degree">{city.temp}</p>
+      <p class="city">
+        <a href="http://openweathermap.org/city/{city.id}" target="_blank">{city.name}</a>
+      </p>
+    </div>
+  {/each}
+</div>
+
+<style>
   .weather {
     padding: 16px 0 32px 0;
   }
@@ -66,10 +59,6 @@
 
   .weather div.size_2 {
     margin-left: 33%;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
-    filter: alpha(opacity=90);
-    -moz-opacity: 0.9;
-    -khtml-opacity: 0.9;
     opacity: 0.9;
   }
 
@@ -81,10 +70,6 @@
 
   .weather div.size_3 {
     margin-left: 66%;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-    filter: alpha(opacity=80);
-    -moz-opacity: 0.8;
-    -khtml-opacity: 0.8;
     opacity: 0.8;
   }
 
@@ -96,10 +81,6 @@
 
   .weather div.size_4 {
     margin-left: 33%;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
-    filter: alpha(opacity=70);
-    -moz-opacity: 0.7;
-    -khtml-opacity: 0.7;
     opacity: 0.7;
   }
 
@@ -111,10 +92,6 @@
 
   .weather div.size_5 {
     margin-left: 66%;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-    filter: alpha(opacity=60);
-    -moz-opacity: 0.6;
-    -khtml-opacity: 0.6;
     opacity: 0.6;
   }
 
@@ -125,10 +102,6 @@
   }
 
   .weather div.size_6 {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-    filter: alpha(opacity=50);
-    -moz-opacity: 0.5;
-    -khtml-opacity: 0.5;
     opacity: 0.5;
   }
 
@@ -140,10 +113,6 @@
 
   .weather div.size_7 {
     margin-left: 66%;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
-    filter: alpha(opacity=40);
-    -moz-opacity: 0.4;
-    -khtml-opacity: 0.4;
     opacity: 0.4;
   }
 
@@ -155,10 +124,6 @@
 
   .weather div.size_8 {
     margin-left: 33%;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-    filter: alpha(opacity=30);
-    -moz-opacity: 0.3;
-    -khtml-opacity: 0.3;
     opacity: 0.3;
   }
 
@@ -169,10 +134,6 @@
   }
 
   .weather div.size_9 {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
-    filter: alpha(opacity=20);
-    -moz-opacity: 0.2;
-    -khtml-opacity: 0.2;
     opacity: 0.2;
   }
 
@@ -184,10 +145,6 @@
 
   .weather div.size_10 {
     margin-left: 66%;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-    filter: alpha(opacity=10);
-    -moz-opacity: 0.1;
-    -khtml-opacity: 0.1;
     opacity: 0.1;
   }
 

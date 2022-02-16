@@ -8,7 +8,7 @@ Environment=NODE_ENV=production
 Type=simple
 User=www-data
 WorkingDirectory=/var/www/coldrussia
-ExecStart=/usr/bin/node /var/www/coldrussia/scripts/start.js
+ExecStart=/usr/bin/node /var/www/coldrussia/dist/index.js
 Restart=on-failure
 
 [Install]

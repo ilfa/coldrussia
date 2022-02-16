@@ -1,2 +1,1 @@
 0 */3 * * * www-data /usr/bin/node /var/www/coldrussia/getWeather.js
-20 */3 * * * root systemctl restart coldrussia
