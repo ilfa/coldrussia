@@ -1,6 +1,22 @@
 <script lang="ts">
   import Footer from '$lib/Footer.svelte';
   import Share from '$lib/Share.svelte';
+  import FingerprintJS from '@fingerprintjs/fingerprintjs-pro';
+  import { onMount } from 'svelte';
+
+  const fpjsKey = import.meta.env.VITE_FP_JS_API_KEY as string;
+
+  let fpPromise;
+  onMount(() => {
+    fpPromise = FingerprintJS.load({
+      apiKey: fpjsKey,
+      region: 'eu'
+    });
+  });
+
+  function handleIdentify() {
+    fpPromise.then((fp) => fp.get()).then((result) => console.log(result.visitorId));
+  }
 </script>
 
 <div id="app" class="wrapper">
@@ -9,7 +25,7 @@
       <h1>
         <a href="/"><span class="blue">Холодная</span> <span class="red">Россия</span></a>
       </h1>
-      <div class="subheading">Сегодня в России чертовски холодно</div>
+      <div class="subheading" on:click={handleIdentify}>Сегодня в России чертовски холодно</div>
     </div>
     <slot />
     <Share />
